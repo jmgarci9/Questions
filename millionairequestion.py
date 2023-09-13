@@ -13,15 +13,31 @@ class Questions:
         return self.question
     
 
+class AnswerChoices:
+    def __init__(self, options: int):
+        self.id_options = {1: ["a) horse", "b) tiger", "c) eagle", "d) bull"]}
+        self.options = options
+        
+        
+        
+    def get_choices(self):
+        if (self.options == self.id_options[1]):
+            for choices in self.id_options[1]:
+                print (choices)
 
-"""class Answers:
-    def __init__(self, id_answer: int, choice: int):
-        self.id_answer = id_answer
+#The number key in the dicationry is relative to the questions in the class questions.
+"""class Choice:
+    def __init__(self, choice: int):
+        self id_answer = {1: "a"}
         self.choice= choice
+        
+        if (choice == id_answer[1])"""
+            
+        
+    
 
-    def answer(self):"""
 
-example=Questions(6)
-print(example.random_question(1))
 
+example1 = AnswerChoices(1)
+example1.get_choices
 
