@@ -1,0 +1,55 @@
+import random
+
+class Questions:
+    def __init__(self, id_question:int):
+        self.id_question = id_question
+        self.question = ""
+
+    def random_question(self, id_answer: int):
+
+        if(id_answer == 1):
+            self.question = "What animal can be seen on the Porsche logo?"
+
+        return self.question
+
+
+#The number key in this dicationary is relative to the questions in the class questions.
+class AnswerChoices:
+    def __init__(self, options: int):
+        self.id_options = {1: ["a) horse", "b) tiger", "c) eagle", "d) bull"]}
+        self.options = options
+
+
+
+    def answer(self):
+            for choices in self.id_options[self.options]:
+                print(choices)
+    
+class PlayerAnswer:
+    def __init__(self, id_choice: int, player_choice: str):
+        self.player_choice = player_choice
+        self.id_answer = {1: "a"}
+        self.id_choice = id_choice
+        
+        if(player_choice == self.id_answer[id_choice]):
+            print("Correct. Next Question")
+        else:
+            print("Incorrect. Would your like to play again? Enter 'y' or 'n'")
+        
+     
+
+#The number key in the dicationary is relative to the questions in the class questions.
+"""class Choice:
+    def __init__(self, choice: int):
+        self id_answer = {1: "a"}
+        self.choice= choice
+        
+        if (choice == id_answer[1])"""
+
+example=Questions(6)
+print(example.random_question(1))
+display = AnswerChoices(1)
+display.answer()
+
+player = PlayerAnswer(1, "b")
+
