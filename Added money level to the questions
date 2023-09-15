@@ -46,6 +46,7 @@ class PlayerAnswer:
         
         if (choice == id_answer[1])"""
 
+
 example=Questions(6)
 print(example.random_question(1))
 display = AnswerChoices(1)
