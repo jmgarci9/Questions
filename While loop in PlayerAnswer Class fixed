@@ -45,21 +45,19 @@ class PlayerAnswer:
                     self.other_choices.append(i)
                 else:
                     continue
-            print(selection + "!")
-            if(selection == self.id_answer[self.id_choice]):
+        
+            if(self.player_choice == self.id_answer[self.id_choice]):
                 
                 self.result = "Correct. Next Question"
                 try_again = False
             
             
-            elif(selection in self.choices):
+            elif(self.player_choice in self.choices):
             
                 self.result = "Incorrect. Would your like to play again? Enter 'y' or 'n'"
                 try_again = False
             else:
-                option1 = input("Please enter a valid option: ")
-                selection = option1
-                print(selection + "?")
+                self.player_choice = input("Please enter a valid option: ")
                 try_again = True
                 
             
