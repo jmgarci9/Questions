@@ -32,16 +32,19 @@ class PlayerAnswer:
         self.id_choice = id_choice
         self.result = ""
         
-        if(player_choice == self.id_answer[id_choice]):
-            print("Correct. Next Question")
+    def player_result(self):
+        if(self.player_choice == self.id_answer[self.id_choice]):
+            
             self.result = "Correct. Next Question"
-            return = self.result
+            
+            
         else:
-            print("Incorrect. Would your like to play again? Enter 'y' or 'n'")
+            
             
             self.result = "Incorrect. Would your like to play again? Enter 'y' or 'n'"
             
-            return = self.result
+        
+        return self.result
 
 
 count = 1
@@ -57,10 +60,14 @@ while count < 15 and correct == True:
     
     user1_choice = input("Enter the correct letter: ")
     user1= PlayerAnswer(random_num, user1_choice)
-    if (user1 == "Correct. Next Question"):
+    
+    if (user1.player_result() == "Correct. Next Question"):
+        print(user1.player_result())
         correct = True
         count += 1
     else:
+        
+        print(user1.player_result())
         correct = False
 
 
@@ -74,9 +81,9 @@ while count < 15 and correct == True:
         if (choice == id_answer[1])"""
 
 
-example=Questions(6)
+"""example=Questions(6)
 print(example.random_question(1))
 display = AnswerChoices(1)
 display.answer()
 
-player = PlayerAnswer(1, "b")
+player = PlayerAnswer(1, "b")"""
