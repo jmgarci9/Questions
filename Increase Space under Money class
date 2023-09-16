@@ -70,7 +70,7 @@ class Money:
         self.prize = {1: 100, 2: 200, 3: 300, 4: 500, 5: '1,000', 6: '2,000', 7: '4,000', 8: '8,000', 9: '16,000', 10: '25,000', 11: '50,000', 12: '100,000', 13: '250,000', 14: '500,000', 15: "1 million"}
         
     def question_money(self):
-        print("<<This question is worth ${value}>>\n".format(value = self.prize[self.level]))
+        print("\n<<This question is worth ${value}>>\n".format(value = self.prize[self.level]))
 
         
 
