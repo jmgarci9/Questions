@@ -48,6 +48,7 @@ class PlayerAnswer:
             if(self.player_choice == self.id_answer[self.id_choice]):
                 
                 self.result = "Correct."
+                
                 try_again = False
             
             
@@ -63,11 +64,18 @@ class PlayerAnswer:
         
         return self.result
 
+class Money:
+    def __init__(self, level: int):
+        self.level = level
+        self.prize = {1: 100, 2: 200, 3: 300, 4: 500}
+        
+    def question_money(self):
+        print("<<This question is worth ${value}>>\n".format(value = self.prize[self.level]))
 
         
 
 
-count = 0
+count = 1
 correct = True
 play_again = "y"
 question_asked = []
@@ -78,12 +86,15 @@ while (count <= 15 and play_again == 'y'):
     
     
     if(random_num not in question_asked):
+        question_value = Money(count)
+        question_value.question_money()
+        
         question = Questions(random_num)
         print(question.random_question())
         question_choices = AnswerChoices(random_num)
         question_choices.answer()
     
-        user1_choice = input("Enter the correct letter: ")
+        user1_choice = input("\nEnter the correct letter: ")
         user1= PlayerAnswer(random_num, user1_choice)
     
         if (user1.player_result() == "Correct."):
@@ -100,9 +111,9 @@ while (count <= 15 and play_again == 'y'):
             play_again = input("")
             count = 1
             
-        if(count == 4):
+        if(count == 5):
             play_again == "n"
-            print("You are a winner of who wants to be a millionaire")
+            print("<<CONGRATULATIONS!! YOU WON WHO WANTS TO BE A MILLIONAIRE!!>>")
             break
     else:
         continue
