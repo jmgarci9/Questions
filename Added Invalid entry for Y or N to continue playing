@@ -112,6 +112,9 @@ while (count <= 15 and play_again == 'y'):
         
             print(user1.player_result())
             play_again = input("")
+            
+            while(play_again != 'y' and play_again != 'n'):
+                play_again = input("Invalid Entry. Please enter 'y' or 'n': ")
             count = 1
             
         if(count == 16):
