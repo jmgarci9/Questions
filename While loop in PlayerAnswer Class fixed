@@ -4,11 +4,11 @@ class Questions:
     def __init__(self, id_question:int):
         self.id_question = id_question
         self.question = ""
+        self.multiple_questions = {1:"What animal can be seen on the Porsche logo?", 2: "What does “www” stand for in a website browser?", 3: "What country gave the US the Statue of Liberty?", 4: "How many bones are in the human body?"}
 
-    def random_question(self, id_answer: int):
-
-        if(id_answer == 1):
-            self.question = "What animal can be seen on the Porsche logo?"
+    def random_question(self):
+        
+        self.question = self.multiple_questions[self.id_question]
 
         return self.question
 
@@ -16,7 +16,7 @@ class Questions:
 #The number key in this dicationary is relative to the questions in the class questions.
 class AnswerChoices:
     def __init__(self, options: int):
-        self.id_options = {1: ["a) horse", "b) tiger", "c) eagle", "d) bull"]}
+        self.id_options = {1: ["a) horse", "b) tiger", "c) eagle", "d) bull"], 2: ["a) website world web", "b) world wide web", "c) websters wide web", "d) world website web"], 3: ["a) Germany", "b) England", "c) France", "d) Canada"], 4:["a) 206", "b) 651", "c) 44", "d) 1221"],   }
         self.options = options
 
 
@@ -28,7 +28,7 @@ class AnswerChoices:
 class PlayerAnswer:
     def __init__(self, id_choice: int, player_choice: str):
         self.player_choice = player_choice
-        self.id_answer = {1: "a"}
+        self.id_answer = {1: "a", 2: "b", 3: "c", 4: "a"}
         self.id_choice = id_choice
         self.result = ""
         self.choices = ['a', 'b', 'c', 'd']
@@ -36,7 +36,7 @@ class PlayerAnswer:
         
     def player_result(self):
         try_again = True
-
+        
         while(try_again == True):
             
             for i in self.choices:
@@ -47,7 +47,7 @@ class PlayerAnswer:
         
             if(self.player_choice == self.id_answer[self.id_choice]):
                 
-                self.result = "Correct. Next Question"
+                self.result = "Correct."
                 try_again = False
             
             
@@ -62,49 +62,49 @@ class PlayerAnswer:
             
         
         return self.result
+
+
         
 
 
-count = 1
+count = 0
 correct = True
 play_again = "y"
+question_asked = []
 
 while (count <= 15 and play_again == 'y'):
-    random_num = random.randint(1,1)
+    random_num = random.randint(1,4)
     
-    question = Questions(random_num)
-    print(question.random_question(random_num))
-    question_choices = AnswerChoices(random_num)
-    question_choices.answer()
     
-    user1_choice = input("Enter the correct letter: ")
-    user1= PlayerAnswer(random_num, user1_choice)
     
-    if (user1.player_result() == "Correct. Next Question"):
-        print(user1.player_result())
-        correct = True
-        count += 1
+    if(random_num not in question_asked):
+        question = Questions(random_num)
+        print(question.random_question())
+        question_choices = AnswerChoices(random_num)
+        question_choices.answer()
+    
+        user1_choice = input("Enter the correct letter: ")
+        user1= PlayerAnswer(random_num, user1_choice)
+    
+        if (user1.player_result() == "Correct."):
+            print(user1.player_result())
+            correct = True
+            question_asked.append(random_num)
+        
+            count += 1
+            
+        
+        else:
+        
+            print(user1.player_result())
+            play_again = input("")
+            count = 1
+            
+        if(count == 4):
+            play_again == "n"
+            print("You are a winner of who wants to be a millionaire")
+            break
     else:
-        
-        print(user1.player_result())
-        play_again = input("")
-        count = 1
-        
-        
+        continue
+    
 print("\n<<<Thank You For Playing>>>")
-
-
-
-#The number key in the dicationary is relative to the questions in the class questions.
-"""class Choice:
-    def __init__(self, choice: int):
-        self id_answer = {1: "a"}
-        self.choice= choice
-        
-        if (choice == id_answer[1])"""
-
-
-"""example=Questions(6)
-print(example.random_question(1))
-display = AnswerChoices(1)
-display.answer()"""
