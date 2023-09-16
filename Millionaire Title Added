@@ -75,6 +75,9 @@ class Money:
         
 
 
+print("!!!!!WELCOME TO WHO WANTS TO BE A MILLIONAIRE!!!!!!\n")
+print("Let's Begin with your first question.......\n")
+
 count = 1
 correct = True
 play_again = "y"
