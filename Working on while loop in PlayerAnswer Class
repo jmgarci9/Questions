@@ -31,26 +31,48 @@ class PlayerAnswer:
         self.id_answer = {1: "a"}
         self.id_choice = id_choice
         self.result = ""
+        self.choices = ['a', 'b', 'c', 'd']
+        self.other_choices = []
         
     def player_result(self):
-        if(self.player_choice == self.id_answer[self.id_choice]):
+        try_again = True
+        selection = self.player_choice
+        
+        while(try_again == True):
             
-            self.result = "Correct. Next Question"
+            for i in self.choices:
+                if(self.id_answer[self.id_choice] != i):
+                    self.other_choices.append(i)
+                else:
+                    continue
+            print(selection + "!")
+            if(selection == self.id_answer[self.id_choice]):
+                
+                self.result = "Correct. Next Question"
+                try_again = False
             
             
-        else:
+            elif(selection in self.choices):
             
-            
-            self.result = "Incorrect. Would your like to play again? Enter 'y' or 'n'"
+                self.result = "Incorrect. Would your like to play again? Enter 'y' or 'n'"
+                try_again = False
+            else:
+                option1 = input("Please enter a valid option: ")
+                selection = option1
+                print(selection + "?")
+                try_again = True
+                
             
         
         return self.result
+        
 
 
 count = 1
 correct = True
+play_again = "y"
 
-while count < 15 and correct == True:
+while (count <= 15 and play_again == 'y'):
     random_num = random.randint(1,1)
     
     question = Questions(random_num)
@@ -68,7 +90,11 @@ while count < 15 and correct == True:
     else:
         
         print(user1.player_result())
-        correct = False
+        play_again = input("")
+        count = 1
+        
+        
+print("\n<<<Thank You For Playing>>>")
 
 
 
@@ -84,6 +110,4 @@ while count < 15 and correct == True:
 """example=Questions(6)
 print(example.random_question(1))
 display = AnswerChoices(1)
-display.answer()
-
-player = PlayerAnswer(1, "b")"""
+display.answer()"""
