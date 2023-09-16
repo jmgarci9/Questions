@@ -36,8 +36,7 @@ class PlayerAnswer:
         
     def player_result(self):
         try_again = True
-        selection = self.player_choice
-        
+
         while(try_again == True):
             
             for i in self.choices:
