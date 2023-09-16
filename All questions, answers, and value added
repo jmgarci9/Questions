@@ -4,7 +4,7 @@ class Questions:
     def __init__(self, id_question:int):
         self.id_question = id_question
         self.question = ""
-        self.multiple_questions = {1:"What animal can be seen on the Porsche logo?", 2: "What does “www” stand for in a website browser?", 3: "What country gave the US the Statue of Liberty?", 4: "How many bones are in the human body?"}
+        self.multiple_questions = {1:"What animal can be seen on the Porsche logo?", 2: "What does “www” stand for in a website browser?", 3: "What country gave the US the Statue of Liberty?", 4: "How many bones are in the human body?", 5: "Who was the lead actress in Pretty Woman?", 6: "What is the highest-grossing movie of all time?", 7: "The Samurai were warriors in which Asian country?", 8: "How many continents are there in the world?", 9: "Who won the first Super Bowl?", 10: "What is the length of an NFL game?", 11: "How often are the Olympics held?", 12: "Who is the main antagonist in the first Avengers movie?", 13: "What’s the name of the company The Office employees work for?", 14: "What movie is this quote from? \"Where we’re going, we don’t need roads.\"", 15: "What did Alexander Graham Bell invent?"}
 
     def random_question(self):
         
@@ -16,7 +16,7 @@ class Questions:
 #The number key in this dicationary is relative to the questions in the class questions.
 class AnswerChoices:
     def __init__(self, options: int):
-        self.id_options = {1: ["a) horse", "b) tiger", "c) eagle", "d) bull"], 2: ["a) website world web", "b) world wide web", "c) websters wide web", "d) world website web"], 3: ["a) Germany", "b) England", "c) France", "d) Canada"], 4:["a) 206", "b) 651", "c) 44", "d) 1221"],   }
+        self.id_options = {1: ["a) horse", "b) tiger", "c) eagle", "d) bull"], 2: ["a) website world web", "b) world wide web", "c) websters wide web", "d) world website web"], 3: ["a) Germany", "b) England", "c) France", "d) Canada"], 4:["a) 206", "b) 651", "c) 44", "d) 1221"], 5:["a) Margot Robbie", "b) Halle Berry", "c) Barbara Streison", "d) Julia Roberts"], 6: ["a) Titanic", "b) Avengers: Endgame", "c) Avatar", "d) Star Wars: Episode IV"], 7: ["a) China", "b) Singapore", "c) Japan", "d) South Korea"], 8: ["a) 5", "b) 7", "c) 10", "d) 12"], 9:["a) Jets", "b) Bears", "c) Patriots", "d) Green Bay Packers"], 10:["a) one quarter", "b) four quarters", "c) two halves", "d) five quarters"], 11:["a) Every 2 years", "b) Every 5 years", "c) Every 10 years", "d) Every 4 years"], 12: ["a) Loki", "b) Thanos", "c) Ultron", "d) Red Skull"], 13: ["a) Paper Inc.", "b) Staple Corp.", "c) Michael Scott's Paper Company", "d) Dunder Mifflin"], 14: ["a) Jaws", "b) Back to the Future", "c) E.T", "d) The Terminator"], 15:["a) The T.V", "b) The phone", "c) The radio", "d) The bell"]   }
         self.options = options
 
 
@@ -28,7 +28,7 @@ class AnswerChoices:
 class PlayerAnswer:
     def __init__(self, id_choice: int, player_choice: str):
         self.player_choice = player_choice
-        self.id_answer = {1: "a", 2: "b", 3: "c", 4: "a"}
+        self.id_answer = {1: "a", 2: "b", 3: "c", 4: "a", 5: "d", 6: "c", 7: "c", 8:"b", 9: "d", 10: "b", 11: "d", 12: "a", 13: "d", 14: 'b', 15: "b"}
         self.id_choice = id_choice
         self.result = ""
         self.choices = ['a', 'b', 'c', 'd']
@@ -67,7 +67,7 @@ class PlayerAnswer:
 class Money:
     def __init__(self, level: int):
         self.level = level
-        self.prize = {1: 100, 2: 200, 3: 300, 4: 500}
+        self.prize = {1: 100, 2: 200, 3: 300, 4: 500, 5: '1,000', 6: '2,000', 7: '4,000', 8: '8,000', 9: '16,000', 10: '25,000', 11: '50,000', 12: '100,000', 13: '250,000', 14: '500,000', 15: "1 million"}
         
     def question_money(self):
         print("<<This question is worth ${value}>>\n".format(value = self.prize[self.level]))
@@ -81,7 +81,7 @@ play_again = "y"
 question_asked = []
 
 while (count <= 15 and play_again == 'y'):
-    random_num = random.randint(1,4)
+    random_num = random.randint(1,15)
     
     
     
@@ -111,7 +111,7 @@ while (count <= 15 and play_again == 'y'):
             play_again = input("")
             count = 1
             
-        if(count == 5):
+        if(count == 16):
             play_again == "n"
             print("<<CONGRATULATIONS!! YOU WON WHO WANTS TO BE A MILLIONAIRE!!>>")
             break
